@@ -54,6 +54,58 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeLightbox();
 });
 
+// Öffnungszeiten-Indikator (clientseitig, falls keine echten Zeiten hinterlegt sind)
+const openingStatusEl = document.getElementById("openingStatus");
+// Beispielhafte Öffnungszeiten (kannst du anpassen)
+const openingHours = {
+  0: null, // Sonntag
+  1: { open: "11:30", close: "22:00" },
+  2: { open: "11:30", close: "22:00" },
+  3: { open: "11:30", close: "22:00" },
+  4: { open: "11:30", close: "22:00" },
+  5: { open: "11:30", close: "23:00" },
+  6: { open: "12:00", close: "23:00" },
+};
+
+function parseTimeToDate(timeStr, baseDate) {
+  const [h, m] = timeStr.split(":").map(Number);
+  const d = new Date(baseDate);
+  d.setHours(h, m, 0, 0);
+  return d;
+}
+
+function isOpenNow() {
+  const now = new Date();
+  const today = openingHours[now.getDay()];
+  if (!today) return { open: false, today };
+
+  const openDate = parseTimeToDate(today.open, now);
+  const closeDate = parseTimeToDate(today.close, now);
+
+  const open = now >= openDate && now <= closeDate;
+  return { open, today };
+}
+
+function formatTodayRange(today) {
+  if (!today) return "Heute geschlossen";
+  return `Heute: ${today.open} – ${today.close} Uhr`;
+}
+
+function renderOpeningStatus() {
+  if (!openingStatusEl) return;
+  const { open, today } = isOpenNow();
+  const range = formatTodayRange(today);
+  const label = open ? "Geöffnet" : "Geschlossen";
+  openingStatusEl.dataset.state = open ? "open" : "closed";
+  openingStatusEl.innerHTML = `
+    <span class="hero__statusDot" aria-hidden="true"></span>
+    <span>${label}</span>
+    <span class="muted">${range}</span>
+  `;
+}
+
+renderOpeningStatus();
+
 // Optional: Text-Menu render (du kannst es benutzen oder ignorieren)
 const menuData = [
   {

@@ -6,9 +6,34 @@
   <title>Il Forno a Legna – Holzofen-Pizzeria in Mainz</title>
   <meta name="description" content="Il Forno a Legna – deine Holzofen-Pizzeria in Mainz. Klarastraße 2, 55116 Mainz. Reservierung: 06131 2113838." />
   <meta name="theme-color" content="#c1121f" />
+  <meta name="format-detection" content="telephone=no" />
 
   <link rel="preload" as="image" href="./assets/10.png" />
   <link rel="stylesheet" href="./styles.css" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Il Forno a Legna",
+      "image": "https://ilforno-mainz.de/assets/hero.jpg",
+      "telephone": "+49 6131 2113838",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Klarastraße 2",
+        "addressLocality": "Mainz",
+        "postalCode": "55116",
+        "addressCountry": "DE"
+      },
+      "servesCuisine": ["Pizza", "Italienisch"],
+      "url": "https://ilforno-mainz.de",
+      "priceRange": "€€",
+      "sameAs": [
+        "https://maps.app.goo.gl/4HTRiewYZNhDqkMj9",
+        "https://www.instagram.com/il__forno__a__legna/"
+      ]
+    }
+  </script>
 </head>
 
 <body>
@@ -80,12 +105,14 @@
           <span>Altstadt Mainz · Holzofen im Gastraum</span>
         </div>
 
-        <h1>Helle, moderne Website –<br/>mit echtem Holzofen-Vibe.</h1>
+        <h1>Pizza aus dem Holzofen – mitten in Mainz.</h1>
 
         <p class="lead">
-          Frisch gebackene Pizza aus dem Holzofen – klassisch, vegetarisch und individuell.
-          Reserviere schnell per Telefon oder finde uns direkt in der Klarastraße.
+          Frisch gebackene Pizza aus dem Holzofen – klassisch, vegetarisch und individuell. Reserviere schnell per
+          Telefon oder komm spontan vorbei in der Klarastraße 2.
         </p>
+
+        <div class="hero__status" id="openingStatus" aria-live="polite"></div>
 
         <div class="hero__buttons">
           <a class="btn btn--primary" href="tel:+4961312113838">📞 06131 2113838</a>
