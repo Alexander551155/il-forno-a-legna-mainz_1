@@ -6,9 +6,34 @@
   <title>Il Forno a Legna – Holzofen-Pizzeria in Mainz</title>
   <meta name="description" content="Il Forno a Legna – deine Holzofen-Pizzeria in Mainz. Klarastraße 2, 55116 Mainz. Reservierung: 06131 2113838." />
   <meta name="theme-color" content="#c1121f" />
+  <meta name="format-detection" content="telephone=no" />
 
   <link rel="preload" as="image" href="./assets/10.png" />
   <link rel="stylesheet" href="./styles.css" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Il Forno a Legna",
+      "image": "https://ilforno-mainz.de/assets/hero.jpg",
+      "telephone": "+49 6131 2113838",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Klarastraße 2",
+        "addressLocality": "Mainz",
+        "postalCode": "55116",
+        "addressCountry": "DE"
+      },
+      "servesCuisine": ["Pizza", "Italienisch"],
+      "url": "https://ilforno-mainz.de",
+      "priceRange": "€€",
+      "sameAs": [
+        "https://maps.app.goo.gl/4HTRiewYZNhDqkMj9",
+        "https://www.instagram.com/il__forno__a__legna/"
+      ]
+    }
+  </script>
 </head>
 
 <body>
@@ -40,8 +65,7 @@
       </a>
 
       <nav class="nav" aria-label="Navigation">
-        <a class="nav__link" href="#ueber-uns">Über uns</a>
-        <a class="nav__link" href="#menu">Speisekarte</a>
+        <a class="nav__link" href="#menu">Menü</a>
         <a class="nav__link" href="#gallery">Galerie</a>
         <a class="nav__link" href="#kontakt">Kontakt</a>
       </nav>
@@ -58,8 +82,7 @@
 
     <div class="mobile" id="mobileNav">
       <div class="container mobile__inner">
-        <a class="mobile__link" href="#ueber-uns">Über uns</a>
-        <a class="mobile__link" href="#menu">Speisekarte</a>
+        <a class="mobile__link" href="#menu">Menü</a>
         <a class="mobile__link" href="#gallery">Galerie</a>
         <a class="mobile__link" href="#kontakt">Kontakt</a>
 
@@ -72,65 +95,74 @@
   </header>
 
   <!-- Hero -->
-  <main class="hero">
-    <div class="container hero__grid">
-      <section class="hero__copy">
+  <main class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__inner">
+      <div class="hero__left">
         <div class="hero__badge">
           <span class="dot"></span>
-          <span>Altstadt Mainz · Holzofen im Gastraum</span>
+          <span>Holzofen · Altstadt Mainz</span>
         </div>
-
-        <h1>Helle, moderne Website –<br/>mit echtem Holzofen-Vibe.</h1>
-
-        <p class="lead">
-          Frisch gebackene Pizza aus dem Holzofen – klassisch, vegetarisch und individuell.
-          Reserviere schnell per Telefon oder finde uns direkt in der Klarastraße.
-        </p>
-
+        <h1>Il Forno a Legna</h1>
+        <p class="lead">Große Bilder, klare Karte, echter Holzofen-Geschmack.</p>
         <div class="hero__buttons">
           <a class="btn btn--primary" href="tel:+4961312113838">📞 06131 2113838</a>
-          <a class="btn btn--ghost" href="#menu">Speisekarte ansehen</a>
-          <a class="btn btn--ghost" href="https://maps.app.goo.gl/4HTRiewYZNhDqkMj9" target="_blank" rel="noopener">Route öffnen</a>
+          <a class="btn btn--ghost" href="#menu">Speisekarte</a>
         </div>
+        <div class="hero__status" id="openingStatus" aria-live="polite"></div>
+      </div>
 
-        <div class="hero__highlights">
-          <div class="hi">
-            <strong>Kartenzahlung</strong>
-            <span>auch kontaktlos / Apple Pay</span>
-          </div>
-          <div class="hi">
-            <strong>Vegetarisch & Vegan</strong>
-            <span>für verschiedene Ernährungsstile</span>
-          </div>
-          <div class="hi">
-            <strong>Familienfreundlich</strong>
-            <span>entspannt mit Kindern</span>
-          </div>
+      <div class="hero__right">
+        <div class="hero__frame" id="heroFrame">
+          <div class="hero__slideBadge" id="heroSlideBadge">Holzofen live</div>
         </div>
-      </section>
-
-      <aside class="hero__media">
-        <div class="hero__image" role="img" aria-label="Hero Bild"></div>
-
-        <div class="hero__card">
-          <h3>Heute reservieren</h3>
-          <p>Am schnellsten per Telefon. Wir freuen uns auf dich!</p>
-          <div class="hero__cardRow">
-            <a class="btn btn--primary btn--small" href="tel:+4961312113838">Anrufen</a>
-            <a class="btn btn--ghost btn--small" href="#kontakt">Kontakt</a>
-          </div>
-          <small class="muted">Adresse: Klarastraße 2, 55116 Mainz</small>
+        <div class="hero__ctaRow">
+          <span>Klarastraße 2, 55116 Mainz</span>
+          <a class="btn btn--ghost btn--small" href="https://maps.app.goo.gl/4HTRiewYZNhDqkMj9" target="_blank" rel="noopener">Route</a>
         </div>
-      </aside>
+      </div>
     </div>
   </main>
+
+  <!-- Bildstreifen -->
+  <section class="section strip" id="bilder">
+    <div class="container strip__inner">
+      <figure class="strip__card">
+        <img src="./assets/10.png" alt="Holzofen in Aktion" loading="lazy" />
+      </figure>
+      <figure class="strip__card">
+        <img src="./assets/6.png" alt="Pizza im Ofen" loading="lazy" />
+      </figure>
+      <figure class="strip__card">
+        <img src="./assets/4.png" alt="Gastraum" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Bildwand -->
+  <section class="section wall" id="wall">
+    <div class="container wall__grid">
+      <figure class="wall__item wall__item--wide">
+        <img src="./assets/8.png" alt="Theke und Ambiente" loading="lazy" />
+      </figure>
+      <figure class="wall__item">
+        <img src="./assets/2.png" alt="Pizza auf dem Brett" loading="lazy" />
+      </figure>
+      <figure class="wall__item wall__item--tall">
+        <img src="./assets/5.png" alt="Pizza aus dem Ofen" loading="lazy" />
+      </figure>
+      <figure class="wall__item">
+        <img src="./assets/3.png" alt="Frische Zutaten" loading="lazy" />
+      </figure>
+    </div>
+  </section>
 
   <!-- About -->
   <section class="section" id="ueber-uns">
     <div class="container">
       <div class="section__head">
         <h2>Über uns</h2>
-        <p>Holzofen als Herzstück – Handwerk, Qualität und ein klarer Stil.</p>
+        <p>Holzofen als Herzstück. Klare Karte, faire Preise, viel Handwerk.</p>
       </div>
 
       <div class="cards">
